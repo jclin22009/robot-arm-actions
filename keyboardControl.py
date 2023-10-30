@@ -1,5 +1,3 @@
-# _____
-
 import pygame
 from owl_client import OwlClient, Joint, Pose
 import time
@@ -19,8 +17,6 @@ screen = pygame.display.set_mode((1, 1))
 # Wait for robot to be available
 while not client.is_running():
     time.sleep(0.2)
-
-# ... (your code for setting the robot's initial pose goes here)
 
 # move to pose that doesn't trigger singularity
 starting_pose = Pose()
@@ -42,7 +38,6 @@ current_pose.z = 0.489203
 current_pose.roll = 3.1376
 current_pose.pitch = -0.087288
 current_pose.yaw = 1.56449
-
 
 # REPL loop: get user input
 running = True
@@ -71,6 +66,11 @@ while running:
         client.move_to_pose(current_pose, jointSpeed)
 
     if keys[pygame.K_q]:
-        running = False  # Exit the loop if 'q' is pressed
+        current_pose.z += increment
+        client.move_to_pose(current_pose, jointSpeed)
+    
+    if keys[pygame.K_e]:
+        current_pose.z -= increment
+        client.move_to_pose(current_pose, jointSpeed)
 
 pygame.quit()
