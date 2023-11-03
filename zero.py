@@ -1,8 +1,8 @@
-from owl_client import OwlClient, Joint 
+from owl_client import OwlClient, Joint
+from robot_arm_ip import robot_arm_ip
 import time
 
-_robot_ip = "10.31.242.89"
-client = OwlClient(_robot_ip)
+client = OwlClient(robot_arm_ip)
 
 # Wait for Robot to be available to operate
 while not client.is_running():

@@ -1,8 +1,8 @@
 from owl_client import OwlClient, Pose
+from robot_arm_ip import robot_arm_ip
 import time
 
-_robot_ip = "localhost"
-client = OwlClient(_robot_ip)
+client = OwlClient(robot_arm_ip)
 _toolspeed = 100  # mm/sec
 print("Moving to Pose")
 # Pose

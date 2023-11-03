@@ -1,9 +1,9 @@
 import pygame
-from owl_client import OwlClient, Joint, Pose
+from owl_client import OwlClient, Pose
+from robot_arm_ip import robot_arm_ip
 import time
 
-owl_robot_ip = "10.31.242.89"  # static IP address of robot
-client = OwlClient(owl_robot_ip)
+client = OwlClient(robot_arm_ip)
 
 jointSpeed = 50  # degrees/sec
 increment = 0.05
